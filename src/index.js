@@ -5,10 +5,12 @@ setInterval(() => {
     dino.setAttribute("src",dinoSprite[(dinoSprite.indexOf(dino.getAttribute("src"))+1)%2])
 }, 100);
 function jump(){
-    dino.classList.add("jump");
-    setTimeout(() => {
-        dino.classList.remove("jump");
-    }, 500);
+    if(dino.classList != "jump"){
+        dino.classList.add("jump");
+        setTimeout(() => {
+            dino.classList.remove("jump");
+        }, 700);
+    }
 }
 
 document.addEventListener("keydown", (e) => {jump()});

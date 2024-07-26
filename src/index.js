@@ -1,5 +1,6 @@
 const dino = document.getElementById("dino");
 const cactus = document.getElementById("cactus");
+const bigCactus = document.getElementById("bigCactus");
 const floor = document.querySelectorAll("#floor");
 const gamOver = document.getElementById("gameover");
 const gameContainer = document.querySelector(".frame");
@@ -44,6 +45,13 @@ function playDialogue(){
                 textEl.innerHTML = dialogue[i];
                 if(i == 5){ //Will call f() 1 interval earlier
                     cutscene = true;
+                }
+                if(i == dialogue.length - 1){
+                    dino.classList.add("cutscene");
+                    let dinoWalk = setInterval(() => {
+                            dino.setAttribute("src",dinoSprite[(dinoSprite.indexOf(dino.getAttribute("src"))+1)%2]);
+                            formatScore();
+                    }, 100);
                 }
             }, interval));
         }
@@ -103,12 +111,17 @@ let frame = setInterval(()=>{
 
 let cutsceneTimeout;
 function playCutscene(){
-    clearInterval(frame, dinoAnim);
     cutsceneTimeout = setTimeout(()=>{
-        floor[0].style.animationPlayState = 'paused';
-        floor[1].style.animationPlayState = 'paused';
-        cactus.style.animationPlayState = 'paused';
-    }, intervals[5]*1000)
+        bigCactus.classList.remove("hidden");
+        bigCactus.classList.add("onScreenCac");
+        setTimeout(()=>{
+            clearInterval(frame); 
+            clearInterval(dinoAnim);
+            floor[0].style.animationPlayState = 'paused';
+            floor[1].style.animationPlayState = 'paused';
+            cactus.style.animationPlayState = 'paused'; 
+        }, 2000); 
+    }, intervals[5]*1000);
 }
 
 function gameOver(){

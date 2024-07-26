@@ -211,3 +211,59 @@ body{
     background-color: aliceblue;
     color: rgb(0, 0, 0);
 }
+
+#bigCactus{
+    position: absolute;
+    bottom: 0px;
+    height: 90px;
+    left: 90px;
+}
+.onScreenCac{
+    animation: moveToCenter 2s 1 linear;
+}
+
+@keyframes moveToCenter {
+    0%{
+        left: 580px;
+    }
+    100%{
+        left: 90px;
+    }
+}
+
+.cutscene{
+    left: 650px;
+    animation: jumpAboveBig 5s 1 ease-in-out;
+}
+
+@keyframes jumpAboveBig {
+    0%{
+        left: 0;
+        bottom: 0;
+    }
+    5%{
+        left: 50px;
+        bottom: 55px;
+    }
+    10%{
+        left: 90px;
+        bottom: 90px;
+    }
+    15%{
+        left: 140px;
+        bottom: 55px;
+    }
+    20%{
+        left: 180px;
+        bottom: 0;
+    }
+    50%{
+        transform: rotateY(180deg);
+    }
+    70%{
+        transform: rotateY(-180deg);
+    }
+    100%{
+        left: 650px;
+    }
+}

@@ -4,15 +4,18 @@ const floor = document.querySelectorAll("#floor");
 const gamOver = document.getElementById("gameover");
 const gameContainer = document.querySelector(".frame");
 const scoreDisplay = document.getElementById("score");
+const autoJump = document.getElementById("checkbox");
+let enabledAuto = false;
+let cutscene = false;
 let over = false;
 let score = 0;
 let highscore = 0;
 const cactustex = ["ctex1","ctex2","ctex3"];
 const dinoSprite = ["./Assests/dino1.png","./Assests/dino2.png"];
 const textEl = document.getElementById("textDisplay");
-const dialogue = ["Hi there!","Keep jumping (press SPACE) and I will tell you something...","Once upon a time there were many dinosaurs, ", "and one of them was the legendary LinuxDino.", "Everyday, he practiced jumping over thousands of cacti", "hoping to be the bounciest dinosaur of them all.","Huh?","I think... I think this is impossible...","But the word impossible wasn't invented yet back at LinuxDino's time."]
+const dialogue = ["Hi there!","Keep jumping (press SPACE) and I will tell you something...","Once upon a time there were many dinosaurs, ", "and one of them was the legendary LinuxDino.", "Everyday, he practiced jumping over thousands of cacti,", "hoping to be the bounciest dinosaur of them all.","Huh?","I think... I think this is impossible...","But the word impossible wasn't invented yet back at LinuxDino's time."]
 const intervals = [0,3,3,4,4,4,3,4,5];
-setInterval(() => {
+let dinoAnim = setInterval(() => {
     if(!over){
         dino.setAttribute("src",dinoSprite[(dinoSprite.indexOf(dino.getAttribute("src"))+1)%2]);
         score += 5;
@@ -39,6 +42,9 @@ function playDialogue(){
             });
             timeout.push(setTimeout(()=>{
                 textEl.innerHTML = dialogue[i];
+                if(i == 5){ //Will call f() 1 interval earlier
+                    cutscene = true;
+                }
             }, interval));
         }
     };
@@ -80,14 +86,30 @@ let frame = setInterval(()=>{
     let dinoTop = parseInt(window.getComputedStyle(dino).getPropertyValue("top"));
     let cactusSide = parseInt(window.getComputedStyle(cactus).getPropertyValue("left"));
     let cactusTop = parseInt(window.getComputedStyle(cactus).getPropertyValue("top"));
-    if(cactusSide < 0){
+    if(cactusSide < 0){ //IF cactus is offscreen
         addCactus();
     }
-    if(cactusSide < 20 && cactusSide > 0 && dinoTop >= 140 && !over){
+    if(enabledAuto && cactusSide < 70 && !over){ //Autojumping
+        jump(); 
+    }
+    if(cactusSide < 20 && cactusSide > 0 && dinoTop >= 140 && !over){ //Checks collision
         over = true;
         gameOver()
     }
+    if(cutscene){
+        playCutscene();
+    }
 },20)
+
+let cutsceneTimeout;
+function playCutscene(){
+    clearInterval(frame, dinoAnim);
+    cutsceneTimeout = setTimeout(()=>{
+        floor[0].style.animationPlayState = 'paused';
+        floor[1].style.animationPlayState = 'paused';
+        cactus.style.animationPlayState = 'paused';
+    }, intervals[5]*1000)
+}
 
 function gameOver(){
     floor[0].style.animationPlayState = 'paused';
@@ -102,6 +124,7 @@ function gameOver(){
     timeout.forEach(e => {
         clearTimeout(e);
     })
+    clearTimeout(cutsceneTimeout);
 }
 document.addEventListener("keydown", (e) => {
     !over? jump() : startGame(); 
@@ -109,4 +132,9 @@ document.addEventListener("keydown", (e) => {
 
 gameContainer.addEventListener("click", (e) => {
     !over? jump() : startGame(); 
+});
+
+autoJump.addEventListener("click", (e) => {
+    autoJump.classList.toggle('unchecked');
+    enabledAuto = !enabledAuto;
 });

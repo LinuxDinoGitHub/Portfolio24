@@ -198,9 +198,16 @@ body{
     top: 105px;
 }
 
+#checkbox::after{
+    content: 'X';
+    padding: 4px 7px;
+    background-color: rgb(0, 136, 255);
+    color: rgb(0, 0, 0);
+}
+
 #checkbox.unchecked::after{
     content: 'X';
     padding: 4px 7px;
     background-color: aliceblue;
-    color: rgb(12, 12, 12);
+    color: rgb(0, 0, 0);
 }

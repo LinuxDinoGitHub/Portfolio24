@@ -8,15 +8,38 @@ let score = 0;
 let highscore = 0;
 const cactustex = ["ctex1","ctex2","ctex3"];
 const dinoSprite = ["./Assests/dino1.png","./Assests/dino2.png"];
-
-const dialogue = ["Hi there!","Keep jumping and I will tell you something...","Once upon a time there were many dinosaurs, ", "and one of them was the legendary LinuxDino.", "Everyday, he practiced jumping over thousands of cactus", "hoping to be the bounciest dinosaur of them all.","Huh?","I think... I think this is impossible...","But the word impossible wasn't invented yet back at LinuxDino's time." ]
-
+const textEl = document.getElementById("textDisplay");
+const dialogue = ["Hi there!","Keep jumping and I will tell you something...","Once upon a time there were many dinosaurs, ", "and one of them was the legendary LinuxDino.", "Everyday, he practiced jumping over thousands of cactus", "hoping to be the bounciest dinosaur of them all.","Huh?","I think... I think this is impossible...","But the word impossible wasn't invented yet back at LinuxDino's time."]
+const intervals = [1,1,1.5,2,2,2,1,2,2];
 setInterval(() => {
     if(!over){
         dino.setAttribute("src",dinoSprite[(dinoSprite.indexOf(dino.getAttribute("src"))+1)%2]);
         score += 5
     }
 }, 100);
+startGame();
+function playDialogue(){
+    for(let i=0; i<dialogue.length; i++){
+        if(!over){
+            for(let k=0; k < 11; k++){
+                setTimeout(()=>{
+                    textEl.style.opacity += 0.1;
+                }, 10);
+            };
+            textEl.innerHTML = dialogue[i];
+            setTimeout(()=>{
+            }, intervals[i]*1000);
+            for(let j=0; j < 11; j++){
+                setTimeout(()=>{
+                    textEl.style.opacity -= 0.1;
+                }, 10);
+            };
+        }
+        else{
+            textEl.innerHTML = "";
+        }
+    };
+};
 
 function startGame(){
     score = 0;
@@ -31,6 +54,7 @@ function startGame(){
     setTimeout(() => {
         over = false; 
         cactus.style.visibility = "visible";
+        playDialogue();
     }, 100);
 };
 
@@ -74,6 +98,7 @@ function gameOver(){
 document.addEventListener("keydown", (e) => {
     !over? jump() : startGame(); 
 });
+
 gameContainer.addEventListener("click", (e) => {
     !over? jump() : startGame(); 
 });

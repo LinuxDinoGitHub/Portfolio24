@@ -1,3 +1,4 @@
+@import url('https://fonts.cdnfonts.com/css/public-pixel');
 body{
     display: block;
     margin: 8px;
@@ -177,4 +178,29 @@ body{
 
 .hidden{
     display: none;
+}
+
+#score{
+    color: rgb(188, 188, 188);
+    font-family: 'Public Pixel', sans-serif;
+    font-size: 12px;
+    position: absolute;
+    top: 50px;
+    right: 0;
+}
+
+#checkbox{
+    position: relative;
+    font-size: 12px;
+    font-family: 'Courier New', Courier, monospace;
+    color: aliceblue;
+    cursor: pointer;
+    top: 105px;
+}
+
+#checkbox.unchecked::after{
+    content: 'X';
+    padding: 4px 7px;
+    background-color: aliceblue;
+    color: rgb(12, 12, 12);
 }

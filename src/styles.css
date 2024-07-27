@@ -1,8 +1,9 @@
 @import url('https://fonts.cdnfonts.com/css/public-pixel');
 body{
+    padding: none;
+    width: 100%;
     display: block;
-    margin: 8px;
-    background-color: #202124;
+    margin: 0;
     overflow-x: hidden;
     -webkit-touch-callout: none; /* iOS Safari */
     -webkit-user-select: none; /* Safari */
@@ -13,6 +14,13 @@ body{
                                   supported by Chrome, Edge, Opera and Firefox */
 }
 
+.game{
+    background-color: #202124;
+    width: 100%;
+    height: 50vh;
+    transition: 1s;
+}
+
 .frame{
     position: relative;
     margin: 0 auto;
@@ -20,6 +28,7 @@ body{
     width: 80%;
     height: 100px;
     padding-top: 100px;
+    top: 0;
 }
 
 .frame::before{
@@ -254,8 +263,51 @@ body{
 
 .page{
     height: 100vh;
+    background-color: #453F3C;
 }
 
 .hidden{
     display: none;
+}
+
+.gradient-transition{
+    margin: none;
+    width: 100%;
+    height: 50vh;
+    background-image: linear-gradient(#202124, #453F3C);
+    transition: 1s;
+}
+
+.navbar-container{
+    width: 100%;
+    height: 80px;
+    background-color: #202124;
+}
+
+
+.logo{
+    width: 20%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.navbar{
+
+}
+.navbar-items{
+    width: 80%;
+    position: relative;
+    right: 0;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.navbar-item a{
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: 20px;
+    color: aliceblue;
+    text-decoration: none;
+    list-style-type: none;
 }

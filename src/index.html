@@ -7,20 +7,36 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div id="frame" class="frame">
-        <div><img src="./Assests/dino1.png" id="dino" draggable="false"/></div>
-        <div id="cactus" class="ctex1"></div>
-        <div id="floor" class="floor1"></div>
-        <div id="floor" class="floor2"></div>
-        <img src="./Assests/gameover.png" id="gameover" draggable="false"/>
-        <img src="./Assests/cactus1.png" id="bigCactus" class="hidden" draggable="false"/>
-        <p id="textDisplay" class="text"></p>
-        <p id="score"></p>
-        <p id="checkbox" class="unchecked">Enable auto-jump: </p>
+    <div class="game">
+        <div id="frame" class="frame">
+            <div><img src="./Assests/dino1.png" id="dino" draggable="false"/></div>
+            <div id="cactus" class="ctex1"></div>
+            <div id="floor" class="floor1"></div>
+            <div id="floor" class="floor2"></div>
+            <img src="./Assests/gameover.png" id="gameover" draggable="false"/>
+            <img src="./Assests/cactus1.png" id="bigCactus" class="hidden" draggable="false"/>
+            <p id="textDisplay" class="text"></p>
+            <p id="score"></p>
+            <p id="checkbox" class="unchecked">Enable auto-jump: </p>
+        </div>
     </div>
     <div class="gradient-transition"></div>
-    <div class="page hidden">
-
+    <div class="mainscreen" id = "mainpage">
+        <div class="homepage">
+            <div class="navbar-container">
+                <ul class="navbar">
+                    <div class="logo">
+                        <a class="navbar-item"><img src="#"/></a>
+                    </div>
+                    <div class="navbar-items">
+                        <li class="navbar-item active-navbar"><a href="index.html">Home</a></li>
+                        <li class="navbar-item"><a href="#">About</a></li>
+                        <li class="navbar-item"><a href="#">Projects</a></li>
+                        <li class="navbar-item"><a href="#">Contact</a></li>
+                    </div>
+                </ul>
+            </div>
+        </div>
     </div>
     <script src="index.js"></script>
 </body>

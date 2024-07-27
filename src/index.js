@@ -7,6 +7,7 @@ const gamOver = document.getElementById("gameover");
 const gameContainer = document.querySelector(".frame");
 const scoreDisplay = document.getElementById("score");
 const autoJump = document.getElementById("checkbox");
+const mainPage = document.getElementById("mainpage");
 let enabledAuto = false;
 let cutscene = false;
 let over = false;
@@ -127,6 +128,7 @@ function playCutscene(){
             floor[0].style.animationPlayState = 'paused';
             floor[1].style.animationPlayState = 'paused';
             cactus.style.animationPlayState = 'paused'; 
+            mainPage.classList.remove("hidden");
         }, 2000); 
     }, intervals[5]*1000);
 }

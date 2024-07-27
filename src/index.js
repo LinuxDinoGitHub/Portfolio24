@@ -42,7 +42,13 @@ function playDialogue(){
                 };
             });
             timeout.push(setTimeout(()=>{
+                textEl.classList.remove('fadeout')
+                textEl.classList.add('fadein');
                 textEl.innerHTML = dialogue[i];
+                setTimeout(()=>{
+                    textEl.classList.remove('fadein');
+                    textEl.classList.add('fadeout');
+                },interval);
                 if(i == 5){ //Will call f() 1 interval earlier
                     cutscene = true;
                 }

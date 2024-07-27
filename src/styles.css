@@ -157,10 +157,11 @@ body{
     color: aliceblue;
     font-family: 'Courier New', Courier, monospace;
     top: 100px;
+    opacity: 1;
 }
 
-.fade{
-    animation: fadein 1 1 linear;
+.fadein{
+    animation: fadein 0.5s 1 linear;
 }
 
 @keyframes fadein {
@@ -172,12 +173,17 @@ body{
     }
 }
 
-.page{
-    height: 100vh;
+.fadeout{
+    animation: fadeout 0.5s 1 linear;
 }
 
-.hidden{
-    display: none;
+@keyframes fadeout {
+    0%{
+        opacity: 1;
+    }
+    100%{
+        opacity: 0;
+    }
 }
 
 #score{
@@ -267,4 +273,14 @@ body{
     100%{
         left: 650px;
     } 
+}
+
+/*Home Page*/
+
+.page{
+    height: 100vh;
+}
+
+.hidden{
+    display: none;
 }

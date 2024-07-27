@@ -48,6 +48,7 @@ function playDialogue(){
                 }
                 if(i == dialogue.length - 1){
                     dino.classList.add("cutscene");
+                    dino.parentElement.classList.add("dinoContainer");
                     let dinoWalk = setInterval(() => {
                             dino.setAttribute("src",dinoSprite[(dinoSprite.indexOf(dino.getAttribute("src"))+1)%2]);
                             formatScore();

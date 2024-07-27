@@ -233,37 +233,38 @@ body{
 
 .cutscene{
     left: 650px;
-    animation: jumpAboveBig 5s 1 ease-in-out;
+    animation: horizontal 3s 1 ease-in-out;
 }
 
-@keyframes jumpAboveBig {
+.dinoContainer{
+    position: absolute;
+    bottom: 0;
+    animation: upDown 1s 1 ease-in-out;
+}
+
+@keyframes upDown {
     0%{
-        left: 0;
-        bottom: 0;
-    }
-    5%{
-        left: 50px;
-        bottom: 55px;
-    }
-    10%{
-        left: 90px;
-        bottom: 90px;
-    }
-    15%{
-        left: 140px;
-        bottom: 55px;
-    }
-    20%{
-        left: 180px;
-        bottom: 0;
+        bottom: 0px;
     }
     50%{
-        transform: rotateY(180deg);
+        bottom: 110px;
     }
-    70%{
-        transform: rotateY(-180deg);
+    100%{
+        bottom: 0px;
+    }
+}
+
+@keyframes horizontal{
+    0%{
+        left: 0px;
+    }
+    30%{
+        left: 180px;
+    }  
+    40%{
+        left: 180px;
     }
     100%{
         left: 650px;
-    }
+    } 
 }

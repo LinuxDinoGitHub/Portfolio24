@@ -157,34 +157,9 @@ body{
     color: aliceblue;
     font-family: 'Courier New', Courier, monospace;
     top: 100px;
-    opacity: 1;
+    transition: 0.5s ease-in-out;
 }
 
-.fadein{
-    animation: fadein 0.5s 1 linear;
-}
-
-@keyframes fadein {
-    0%{
-        opacity: 0;
-    }
-    100%{
-        opacity: 1;
-    }
-}
-
-.fadeout{
-    animation: fadeout 0.5s 1 linear;
-}
-
-@keyframes fadeout {
-    0%{
-        opacity: 1;
-    }
-    100%{
-        opacity: 0;
-    }
-}
 
 #score{
     color: rgb(188, 188, 188);

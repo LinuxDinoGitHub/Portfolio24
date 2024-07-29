@@ -261,6 +261,27 @@ body{
     } 
 }
 
+.arrow{
+    width: 5px;
+    height: 45px;
+    background-color: #FFFFFF;
+    transform: rotateZ(45deg);
+    position: relative;
+    margin: 0 auto;
+    z-index: 10;
+}
+
+.arrow::after{
+    content: '';
+    width: 5px;
+    height: 45px;
+    background-color: #FFFFFF;
+    transform: rotateZ(90deg);
+    position: relative;
+    margin: 0 auto;
+    z-index: 10;
+}
+
 /*Home Page*/
 
 @font-face {
@@ -294,10 +315,19 @@ body{
     justify-content: flex-start;
     align-items: center;
 }
+.logo a img{
+    width: 40px;
+    display: flex;
+    align-items: center;
+}
 
 .navbar{
     list-style-type: none;
     margin: 0;
+    padding: 10px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
 }
 
 .navbar-items{
@@ -366,3 +396,4 @@ body{
 .wave .shape-fill {
     fill: #7B904B;
 }
+

@@ -8,6 +8,7 @@ const gameContainer = document.querySelector(".frame");
 const scoreDisplay = document.getElementById("score");
 const autoJump = document.getElementById("checkbox");
 const mainPage = document.getElementById("mainpage");
+const arrow = document.getElementById("arrow");
 let enabledAuto = false;
 let cutscene = false;
 let over = false;
@@ -108,7 +109,7 @@ let frame = setInterval(()=>{
     if(enabledAuto && cactusSide < 70 && !over){ //Autojumping
         jump(); 
     }
-    if(cactusSide < 20 && cactusSide > 0 && dinoTop >= 140 && !over){ //Checks collision
+    if(cactusSide < 20 && cactusSide > 0 && dinoTop >= 140 && !over && !cutscene){ //Checks collision
         over = true;
         gameOver()
     }
@@ -130,6 +131,7 @@ function playCutscene(){
             cactus.style.animationPlayState = 'paused';
             setTimeout(()=>{
                 mainPage.classList.remove("hidden");
+                arrow.classList.remove("hidden");
             },8000) 
         }, 2000); 
     }, intervals[5]*1000);

@@ -12,6 +12,7 @@ body{
         -ms-user-select: none; /* Internet Explorer/Edge */
             user-select: none; /* Non-prefixed version, currently
                                   supported by Chrome, Edge, Opera and Firefox */
+    background-color: #202124;
 }
 
 .game{
@@ -60,6 +61,7 @@ body{
 #dino{
     position: absolute;
     bottom: 0;
+    z-index: 3;
     height: 40px;
     width: auto;
 }
@@ -84,7 +86,7 @@ body{
     position: absolute;
     bottom: 0;
     left: 580px;
-    z-index: -1;
+    z-index: 2;
     animation: move 2s infinite linear;
 }
  
@@ -120,7 +122,7 @@ body{
 
 .floor1, .floor2 {
     position: absolute;
-    z-index: -2;
+    z-index: 1;
     bottom: 0;
     width: 100%;
     height: 120px;
@@ -154,9 +156,9 @@ body{
     display: flex;
     position: absolute;
     justify-content: center;
-    z-index: 999;
     top: -20px;
-    width: 600px;
+    max-width: 600px;
+    width: 100%;
     height: auto;
 }
 
@@ -261,11 +263,6 @@ body{
 
 /*Home Page*/
 
-.page{
-    height: 100vh;
-    background-color: #453F3C;
-}
-
 .hidden{
     display: none;
 }
@@ -279,9 +276,10 @@ body{
 }
 
 .navbar-container{
+    position: relative;
+    top: 0;
     width: 100%;
     height: 80px;
-    background-color: #202124;
 }
 
 
@@ -293,21 +291,49 @@ body{
 }
 
 .navbar{
-
+    list-style-type: none;
 }
 .navbar-items{
     width: 80%;
     position: relative;
     right: 0;
     display: flex;
-    justify-content: space-around;
     align-items: center;
 }
+
 
 .navbar-item a{
     font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     font-size: 20px;
     color: aliceblue;
+    padding-right: 40px;
     text-decoration: none;
-    list-style-type: none;
+}
+
+.homepage{
+    height: 100vh;
+    background-color: #453F3C;
+}
+
+@font-face {
+    font-family: 'Bm Hanna'; /*a name to be used later*/
+    src: url(./fonts/BM-HANNA.ttf); /*URL to font*/
+}
+
+.title{
+    font-size: 96px;
+    margin: 0;
+    font-family: 'Bm Hanna';
+    color: #FFFFFF;
+}
+
+.subheading{
+    font-family: 'Bm Hanna';
+    font-size: 24px;
+    margin: 0;
+    color: #FFFFFF;
+}
+.subheading .green{
+    display: inline;
+    color: #7B904B;
 }

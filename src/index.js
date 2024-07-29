@@ -127,8 +127,10 @@ function playCutscene(){
             clearInterval(dinoAnim);
             floor[0].style.animationPlayState = 'paused';
             floor[1].style.animationPlayState = 'paused';
-            cactus.style.animationPlayState = 'paused'; 
-            mainPage.classList.remove("hidden");
+            cactus.style.animationPlayState = 'paused';
+            setTimeout(()=>{
+                mainPage.classList.remove("hidden");
+            },8000) 
         }, 2000); 
     }, intervals[5]*1000);
 }

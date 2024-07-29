@@ -263,6 +263,11 @@ body{
 
 /*Home Page*/
 
+@font-face {
+    font-family: 'Bm Hanna';
+    src: url(./fonts/BM-HANNA.ttf);
+}
+
 .hidden{
     display: none;
 }
@@ -292,18 +297,20 @@ body{
 
 .navbar{
     list-style-type: none;
+    margin: 0;
 }
+
 .navbar-items{
     width: 80%;
-    position: relative;
+    position: absolute;
     right: 0;
     display: flex;
+    justify-content: flex-end;
     align-items: center;
 }
 
-
 .navbar-item a{
-    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-family: 'Bm Hanna';
     font-size: 20px;
     color: aliceblue;
     padding-right: 40px;
@@ -311,29 +318,51 @@ body{
 }
 
 .homepage{
+    padding: 0 50px;
     height: 100vh;
     background-color: #453F3C;
 }
 
-@font-face {
-    font-family: 'Bm Hanna'; /*a name to be used later*/
-    src: url(./fonts/BM-HANNA.ttf); /*URL to font*/
-}
 
 .title{
     font-size: 96px;
-    margin: 0;
+    margin: 10px 0;
     font-family: 'Bm Hanna';
     color: #FFFFFF;
 }
 
+.orange{
+    color: #FFA94B;
+}
+
 .subheading{
+    display: inline;
     font-family: 'Bm Hanna';
     font-size: 24px;
-    margin: 0;
+    margin: 100px 0;
     color: #FFFFFF;
 }
-.subheading .green{
-    display: inline;
+.green{
     color: #7B904B;
+}
+/*Wave*/
+.wave {
+    position: relative;
+    bottom: 0;
+    left: -50px;
+    width: 100vw;
+    overflow: hidden;
+    line-height: 0;
+    transform: rotate(180deg);
+}
+
+.wave svg {
+    position: relative;
+    display: block;
+    width: calc(126% + 1.3px);
+    height: 362px;
+}
+
+.wave .shape-fill {
+    fill: #7B904B;
 }

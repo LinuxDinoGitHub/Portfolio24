@@ -7,9 +7,12 @@ const gamOver = document.getElementById("gameover");
 const gameContainer = document.querySelector(".frame");
 const scoreDisplay = document.getElementById("score");
 const autoJump = document.getElementById("checkbox");
+const skip = document.getElementById("skip");
+//Page management
 const mainPage = document.getElementById("mainpage");
 const homePage = document.querySelector(".homepage");
 const arrow = document.getElementById("arrow");
+//Back to dinosaurs
 let enabledAuto = false;
 let cutscene = false;
 let over = false;
@@ -153,6 +156,20 @@ function gameOver(){
     })
     clearTimeout(cutsceneTimeout);
 }
+
+function skipGame(){
+    floor[0].style.animationPlayState = 'paused';
+    floor[1].style.animationPlayState = 'paused';
+    cactus.style.animationPlayState = 'paused';
+    gamOver.classList.add("gameover");
+    textEl.innerHTML = "[skipped] refresh browser to try again";
+    timeout.forEach(e => {
+        clearTimeout(e);
+    })
+    clearTimeout(cutsceneTimeout);
+    mainPage.classList.remove("hidden");
+    arrow.classList.remove("hidden");
+}
 document.addEventListener("keydown", (e) => {
     !over? jump() : startGame(); 
 });
@@ -168,6 +185,10 @@ autoJump.addEventListener("click", (e) => {
 
 arrow.addEventListener("click", (e) => {
     goToHomePage();
+})
+
+skip.addEventListener("click", (e) => {
+    skipGame();
 })
 function goToHomePage(){
     homePage.scrollIntoView({

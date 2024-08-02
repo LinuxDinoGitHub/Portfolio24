@@ -8,6 +8,7 @@ const gameContainer = document.querySelector(".frame");
 const scoreDisplay = document.getElementById("score");
 const autoJump = document.getElementById("checkbox");
 const mainPage = document.getElementById("mainpage");
+const homePage = document.getElementById("homepage");
 const arrow = document.getElementById("arrow");
 let enabledAuto = false;
 let cutscene = false;
@@ -164,3 +165,13 @@ autoJump.addEventListener("click", (e) => {
     autoJump.classList.toggle('unchecked');
     enabledAuto = !enabledAuto;
 });
+
+arrow.addEventListener("click", (e) => {
+    goToHomePage();
+})
+function goToHomePage(){
+    homePage.scrollIntoView({
+        behavior: 'smooth',
+        block: 'end'
+    });
+}

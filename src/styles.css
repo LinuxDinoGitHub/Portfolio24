@@ -261,26 +261,46 @@ body{
     } 
 }
 
-.arrow{
-    width: 5px;
-    height: 45px;
-    background-color: #FFFFFF;
-    transform: rotateZ(45deg);
-    position: relative;
-    margin: 0 auto;
-    z-index: 10;
+@keyframes upDownBounce {
+    0%{
+        margin-top: 0;
+    }
+    50%{
+        margin-top: 40px;
+    }
+    100%{
+        margin-top: 0;
+    }
 }
 
-.arrow::after{
-    content: '';
-    width: 5px;
-    height: 45px;
-    background-color: #FFFFFF;
-    transform: rotateZ(90deg);
-    position: relative;
-    margin: 0 auto;
-    z-index: 10;
+.arrow {
+    position: absolute;
+    top: calc(100vh - 240px);
+    left: calc(50% - 14px);
+    border-radius: 2px;
+    animation: upDownBounce 2s infinite ease-in-out;
+    cursor: pointer;
+    opacity: 1;
+    transition: 0.4s;
+  }
+  
+.arrow:after {
+    content: " ";
+    position: absolute;
+    top: 12px;
+    left: -10px;
+    width: 48px;
+    height: 48px;
+    border-bottom: 4px solid white;
+    border-right: 4px solid white;
+    border-radius: 4px;
+    transform: rotateZ(45deg);
 }
+
+.arrow:hover{
+    opacity: 0.4;
+}
+
 
 /*Home Page*/
 
@@ -348,6 +368,7 @@ body{
 }
 
 .homepage{
+    position: relative;
     padding: 0 50px;
     height: 100vh;
     background-color: #453F3C;
@@ -377,9 +398,9 @@ body{
 }
 /*Wave*/
 .wave {
-    position: relative;
+    position: absolute;
     bottom: 0;
-    left: -50px;
+    left: 0;
     width: 100vw;
     overflow: hidden;
     line-height: 0;

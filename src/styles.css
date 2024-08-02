@@ -481,3 +481,16 @@ body{
     fill: #7B904B;
 }
 
+.homepage2, 
+.homepage3,
+.homepage4,
+.homepage5{
+    position: relative;
+    height: 100vh;
+    width: 100%;
+    background-color: #453F3C;
+}
+
+.homepage2 {
+    background-color: #7B904B;
+}

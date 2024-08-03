@@ -458,26 +458,13 @@ body{
     content: ' LinuxDino';
     color: #7B904B;
 }
-/*Wave*/
-.wave {
+
+.tree{
     position: absolute;
+    width: 105%;
     bottom: 0;
     left: 0;
-    width: 100vw;
-    overflow: hidden;
-    line-height: 0;
-    transform: rotate(180deg);
-}
-
-.wave svg {
-    position: relative;
-    display: block;
-    width: calc(126% + 1.3px);
-    height: 362px;
-}
-
-.wave .shape-fill {
-    fill: #7B904B;
+    filter: brightness(150%);
 }
 
 .homepage2, 

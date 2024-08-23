@@ -19,7 +19,7 @@ Anyways...
 5. Select 'Yes, trust the authors.' when/if prompted.
 6. The project should appear, to run it, click on the extensions menu shown below and install an extension called Live Server.
 ![image](https://github.com/user-attachments/assets/daf7657f-278e-4dba-813e-c8ae4ee368a2)
-7. Once it has finished installing, a button should appear on the bottom right displaying the text 'Go Live', if not, use [this tutorial]([url](https://www.youtube.com/watch?v=9kEOkw_LvGU)) to troubleshoot.
+7. Once it has finished installing, a button should appear on the bottom right displaying the text 'Go Live', if not, use [this tutorial](https://www.youtube.com/watch?v=9kEOkw_LvGU) to troubleshoot.
 ![image](https://github.com/user-attachments/assets/9b91e3fc-d43b-42c0-a21e-b055a6a26dea)
 8. Press the 'Go Live' button to launch the project and the website should show in a browser window.
 9. Done!
